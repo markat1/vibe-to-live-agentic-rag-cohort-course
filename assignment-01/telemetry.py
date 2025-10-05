@@ -25,7 +25,7 @@ def init_tracing(
     print("🔗 Phoenix endpoint:", phoenix_endpoint)
     
     tracer_provider = register(
-        project_name=project_name or os.getenv("PHOENIX_PROJECT_NAME", "default-project-name"),
+        project_name=project_name or os.getenv("PHOENIX_PROJECT_NAME"),
         endpoint=phoenix_endpoint,
         protocol="http/protobuf",
         auto_instrument=auto_instrument,

@@ -6,7 +6,10 @@ from telemetry import init_tracing
 collection_name = "fed_speeches"
 model_name = "BAAI/bge-small-en"
 
+tracer, _ = init_tracing()
+
 @function_tool()
+@tracer.chain
 def search_vector_database_by_query_text(query_text: str):
     """Perform semantic search on collection."""
     
