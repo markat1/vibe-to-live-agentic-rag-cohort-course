@@ -10,7 +10,7 @@ tracer, _ = init_tracing()
 
 @tracer.chain
 @function_tool()
-def search_vector_database_by_query(query_text: str):
+def search_vector_database_by_query_text(query_text: str):
     """Perform semantic search on collection."""
     
     client = QdrantClient(
