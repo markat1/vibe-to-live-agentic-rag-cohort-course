@@ -12,13 +12,12 @@ def create_rag_agent() -> Agent:
     """
     return Agent(
         name="rag_agent",
-        model=model,
-        model_settings=ModelSettings(temperature=0.0),
-        tools=[search_vector_database_by_query_text],
         instructions=(
             "You are a retrieval-augmented generation (RAG) agent. "
-            "Use the tool to search for relevant information to answer the user's question. "
+            "Always use the tools to search for relevant information to answer the user's question. "
             "If you find relevant information, use it to provide a comprehensive answer. "
-            "If no relevant information is found, respond with 'I don't know'."
-        ),
+            "If no relevant information is found, respond with 'I don't know'."),
+        tools=[search_vector_database_by_query_text],
+        model=model,
+        model_settings=ModelSettings(temperature=0.0),
     )
