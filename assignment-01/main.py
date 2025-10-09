@@ -12,7 +12,7 @@ init_tracing(
 
 app = FastAPI()
 
-@app.get("/ask")
+@app.get("/chat")
 async def ask_agent(question: str):
     result = await Runner.run(create_rag_agent(), question)
     return {"answer": result.final_output}
