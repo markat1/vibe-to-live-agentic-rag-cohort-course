@@ -5,3 +5,5 @@ arize-phoenix
 openai-agents
 fastapi
 uvicorn
+openinference-instrumentation-openai 
+openai
