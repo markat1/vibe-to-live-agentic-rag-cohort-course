@@ -7,3 +7,4 @@ fastapi
 uvicorn
 openinference-instrumentation-openai 
 openai
+openinference-instrumentation-openai-agents

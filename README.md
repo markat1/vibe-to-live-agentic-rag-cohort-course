@@ -364,3 +364,6 @@ This repository is part of **[From Vibe to Live: Build and Deploy Production AI 
 [Course](https://buildingaiagents.com) • [Examples](#learning-resources) • [Troubleshooting](#troubleshooting)
 
 </div>
+
+uvicorn main:app --reload
+

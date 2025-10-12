@@ -3,14 +3,15 @@ from openai import AsyncOpenAI
 import os
 from vector_search import search_vector_database_by_query_text
 from telemetry import init_tracing
+#from phoenix.otel import Tracer
 
-tracer, _ = init_tracing()
+#tracer, _ = init_tracing()
 
-#client = AsyncOpenAI(base_url=os.getenv("OPENAI_API_ENDPOINT"))
-client = AsyncOpenAI()
+client = AsyncOpenAI(base_url=os.getenv("OPENAI_API_ENDPOINT"))
+#client = AsyncOpenAI()
 model = OpenAIChatCompletionsModel(openai_client=client, model="gpt-4.1")
 
-@tracer.chain
+#@tracer.chain
 def create_rag_agent() -> Agent:
     """
     Agent is search for the best dataset to answer the user's question.
