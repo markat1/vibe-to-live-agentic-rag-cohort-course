@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from agents import Runner
 from rag_agent import create_rag_agent
 import os
-from telemetry import init_tracing
 from phoenix.trace import using_project
 from phoenix.otel import register
 
