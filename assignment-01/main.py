@@ -4,15 +4,21 @@ from rag_agent import create_rag_agent
 import os
 from telemetry import init_tracing
 from phoenix.trace import using_project
-from openinference.instrumentation.openai_agents import OpenAIAgentsInstrumentor
+from phoenix.otel import register
 
 app = FastAPI()
 
-tracer, _ = init_tracing()
+tracer_provider = register(
+        project_name=os.getenv("PHOENIX_PROJECT_NAME"),
+        endpoint=os.getenv("PHOENIX_COLLECTOR_ENDPOINT"),
+        protocol="http/protobuf",
+        auto_instrument=True,
+        batch=True,
+)
+
 
 @app.get("/chat")
 async def ask_agent(question: str):
-    result = await Runner.run(create_rag_agent(), question)
-    return {"answer": result.final_output}
-    #with using_project("customer-service-agent"):
-       
+    with using_project(os.getenv("PHOENIX_PROJECT_NAME")):
+        result = await Runner.run(create_rag_agent(), question)
+        return {"answer": result.final_output}
