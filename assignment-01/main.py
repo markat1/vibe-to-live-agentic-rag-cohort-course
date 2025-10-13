@@ -10,11 +10,11 @@ from openinference.instrumentation.openai_agents import OpenAIAgentsInstrumentor
 # Traces will be sent to Phoenix hosted platform
 OpenAIAgentsInstrumentor().instrument()
 
-init_tracing(
-        project_name=os.environ.get("PHOENIX_PROJECT_NAME"),
-        auto_instrument=True,
-        endpoint=os.getenv("PHOENIX_COLLECTOR_ENDPOINT"),
-)
+# init_tracing(
+#         project_name=os.environ.get("PHOENIX_PROJECT_NAME"),
+#         auto_instrument=True,
+#         endpoint=os.getenv("PHOENIX_COLLECTOR_ENDPOINT"),
+# )
 
 app = FastAPI()
 
