@@ -1,0 +1,11 @@
+openai
+fastembed
+qdrant-client
+arize-phoenix
+openai-agents
+fastapi
+uvicorn
+openinference-instrumentation-openai 
+openai
+openinference-instrumentation-openai-agents
+pydantic
