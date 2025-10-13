@@ -2,17 +2,15 @@ from agents import Agent, ModelSettings, OpenAIChatCompletionsModel
 from openai import AsyncOpenAI
 import os
 from vector_search import search_vector_database_by_query_text
-from telemetry import init_tracing
 from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
+from pydantic import BaseModel
 
 client = AsyncOpenAI(base_url=os.getenv("OPENAI_API_ENDPOINT"))
 model = OpenAIChatCompletionsModel(openai_client=client, model="gpt-4.1")
-from pydantic import BaseModel
 
 class SynthesizerOutput(BaseModel):
     synthesized_answer: str
     sources: list[str]
-
 
 def create_rag_agent() -> Agent:
     """
