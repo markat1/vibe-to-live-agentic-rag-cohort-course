@@ -25,3 +25,8 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "uvicorn>=0.37.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "assignment-01",
+]
