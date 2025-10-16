@@ -4,6 +4,8 @@ import os
 from vector_search import search_vector_database_by_query_text
 from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
+from openinference.instrumentation import using_attributes
+
 
 client = AsyncOpenAI(base_url=os.getenv("OPENAI_API_ENDPOINT"))
 model = OpenAIChatCompletionsModel(openai_client=client, model="gpt-4.1")
